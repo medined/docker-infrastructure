@@ -1,0 +1,4 @@
+fullchain.pem
+privkey.pem
+dhparam.pem
+.htpasswd

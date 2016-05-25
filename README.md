@@ -19,6 +19,7 @@ I used the following guides:
 1. Install Let's Encrypt.
 1. Use the following as a template. Move to the next step when you have fullchain.pem and privkey.pem files.
 1. Create a /etc/ssl/certs/dhparam.pem file with 2048 bits.
+1. Install BATS for BASH tests.
 
 ## Create Docker Images
 
@@ -62,3 +63,31 @@ docker tag hello-world:latest $(hostname):443/hello-secure-world:latest
 docker push $(hostname):443/hello-secure-world:latest
 docker pull $(hostname):443/hello-secure-world:latest
 ```
+
+# Install BATS
+
+```
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository ppa:duggan/bats --yes
+sudo apt-get update -qq
+sudo apt-get install -qq bats
+```
+
+* https://github.com/sstephenson/bats
+* https://blog.engineyard.com/2014/bats-test-command-line-tools
+* http://blog.spike.cx/post/60548255435/testing-bash-scripts-with-bats
+* https://github.com/aespinosa/docker-jenkins/blob/master/test/jenkins_test.bats
+* https://github.com/rightscale-cookbooks/rs-cookbooks_ci/blob/master/test/integration/jenkins/bats/jenkins.bats
+
+# TODO
+
+* Use BATS for BASH-level unit testing.
+* Use docker compose to start multiple containers instead of manually
+* LDAP in docker
+* Use Portus to provide user interface for docker
+* Jenkins
+* BitBucket
+* JIRA
+* Confluence
+* Investigate python version of maven
+

@@ -30,6 +30,7 @@ Please review the build.sh before you run it because it refers to several host f
 
 ## Run Docker Images
 
+```
 docker run -d -e \
  VIRTUAL_HOST=$(hostname) \
  -v /opt/registry/data:/var/lib/registry \
@@ -46,7 +47,7 @@ docker run -d -p 443:443 \
  -v $(pwd)/dhparam.pem:/etc/nginx/certs/dhparam.pem:ro \
  -v $(pwd)/.htpasswd:/etc/nginx/.htpasswd:ro \
  d13/docker-registry-proxy
-
+```
 
 ## Test the Registry
 

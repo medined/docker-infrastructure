@@ -18,8 +18,19 @@ I used the following guides:
 1. Ensure your server has a hostname with an A record. Run 'hostname' to check. Run 'ping' to verify IP address. Run 'dig' to check DNS.
 1. Install Let's Encrypt.
 1. Use the following as a template. Move to the next step when you have fullchain.pem and privkey.pem files.
+```
+sudo -H ./letsencrypt-auto certonly  --renew-by-default --standalone -d affy.com
+```
 1. Create a /etc/ssl/certs/dhparam.pem file with 2048 bits.
 1. Install BATS for BASH tests.
+1. Install docker-compose. See https://github.com/docker/compose/releases.
+
+## Environment Setup
+
+```
+alias rc=./container-start.sh
+alias sc=./container-stop.sh
+```
 
 ## Create Docker Images
 
@@ -81,11 +92,12 @@ sudo apt-get install -qq bats
 
 # TODO
 
-* Use BATS for BASH-level unit testing.
 * Use docker compose to start multiple containers instead of manually
+* Investigate OpenVPN
 * LDAP in docker
 * Use Portus to provide user interface for docker
 * Jenkins
+* Run docker-infrastructure projects via Jenkins (docker-in-docker?)
 * BitBucket
 * JIRA
 * Confluence
